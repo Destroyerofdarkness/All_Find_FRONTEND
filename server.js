@@ -6,6 +6,8 @@ const mongoose = require("mongoose");
 
 const cookieParser = require("cookie-parser")
 
+const cors = require("cors");
+
 require("dotenv").config();
 
 const app = express();
@@ -32,6 +34,12 @@ app.use(express.urlencoded({extended: true}));
 
 app.use(cookieParser())
 
+app.use(cors({
+    origin: "http://localhost:3000",
+    methods: ["GET","POST", "DELETE","PUT"],
+    allowedHeaders: ["Content-Type","Authorization"]
+}))
+
 app.use(search)
 
 app.use(checkUser)
@@ -42,8 +50,6 @@ app.use("/home/game", gameRoute);
 
 app.use(home);
 
-
-
 app.use(authRoute)
 
 app.use((req, res) =>{
@@ -52,11 +58,5 @@ app.use((req, res) =>{
 
 
 app.listen(process.env.PORT,"0.0.0.0", async()=>{
-await mongoose.connect(process.env.dbURI)
-.then((result)=>{
-    console.log("Succesfully connected to database")
-})
-.catch((err)=>{
-    console.log(err)
-})
+console.log("Server is running on port:", process.env.PORT)
 });

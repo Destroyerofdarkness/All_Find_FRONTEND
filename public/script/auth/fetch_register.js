@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", (e)=>{
         const pass = form.pass.value    
         userError.textContent = "";
         passError.textContent = "";
-    const res = await fetch("/register", {
+    const res = await fetch("http://localhost:4000/register", {
         method : "POST",
         body: JSON.stringify({user,pass}),
         headers: {"Content-Type": "application/json"}
@@ -20,10 +20,9 @@ document.addEventListener("DOMContentLoaded", (e)=>{
     if(data.error){
         userError.textContent = data.error.user;
         passError.textContent = data.error.pass;
-        return;
     }
-    if(data.userId){
-        window.location.href = "/home"
+    if(data.token){
+        window.location.href = `/createCookie/${data.token}`
     }
     })
 })
