@@ -1,7 +1,4 @@
-const anime = require("../models/anime");
 
-const {handleAnimeError} = require("../handlers/errorHandler.js")
-const handleError = handleAnimeError
 const register_anime_page = (req, res) => {
   res.render("anime/registerAni", { name: "Register Anime" });
 };

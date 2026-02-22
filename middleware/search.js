@@ -1,5 +1,4 @@
-const Games = require("../models/Games");
-const Anime = require("../models/anime");
+
 
 const search = async (req, res, next) => {
   const searchValue = req.query.searchValue?.trim();

@@ -1,10 +1,8 @@
-const games = require("../models/Games")
-const animes = require("../models/anime")
-const User = require("../models/User.js")
-const {findContent, findUsersCreations}= require("../handlers/modelHandlers.js")
+
+const { get_games_and_anime }= require("../handlers/getContentHandler")
+
 const home_get = async (req,res) =>{
-    const game = await games.find() 
-    const anime = await animes.find()
+    const {game, anime} = await get_games_and_anime()
     res.render("index", {name: "Home", game , anime})
 }
 

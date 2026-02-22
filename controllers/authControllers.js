@@ -1,9 +1,5 @@
 
 
-const User = require("../models/User.js")
-
-const {handleAuthError}= require("../handlers/errorHandler.js")
-
 const maxValidDate = 3*24*60*60
 
 const render_login = (req,res )=>{

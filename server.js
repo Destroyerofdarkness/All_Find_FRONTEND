@@ -40,9 +40,9 @@ app.use(cors({
     allowedHeaders: ["Content-Type","Authorization"]
 }))
 
-app.use(search)
+//app.use(search)
 
-app.use(checkUser)
+//app.use(checkUser)
 
 app.use("/home/anime", animeRoute);
 
