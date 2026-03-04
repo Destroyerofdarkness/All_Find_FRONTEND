@@ -1,5 +1,3 @@
-const jwt = require("jsonwebtoken");
-
 const { get_req }= require("../handlers/getContentHandler");
 
 const authenticate = async(req, res, next) => {

@@ -1,5 +1,3 @@
-
-
 const maxValidDate = 3*24*60*60
 
 const render_login = (req,res )=>{

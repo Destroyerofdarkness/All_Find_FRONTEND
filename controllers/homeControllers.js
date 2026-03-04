@@ -1,44 +1,51 @@
+const { get_req } = require("../handlers/getContentHandler");
 
-const { get_req }= require("../handlers/getContentHandler")
+const home_get = async (req, res) => {
+  try {
+    const { game, anime } = await get_req("/getAllContent");
+    res.render("index", { name: "Home", game, anime });
+  } catch (err) {
+    console.log(err);
+    res.status(500);
+  }
+};
 
-const home_get = async (req,res) =>{
-    const {game, anime} = await get_req("/getAllContent");
-    res.render("index", {name: "Home", game , anime})
-}
+const find_result = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const content = await findContent(id);
+    console.log("content:", content);
+    res.status(200).render("description", { content, name: content.Name });
+  } catch (err) {
+    console.log(err);
+    res.status(500).send(err);
+  }
+};
 
-const find_result = async(req,res)=>{
-    const id = req.params.id
-    try{
-        const content = await findContent(id)
-        console.log("content:",content)
-        res.status(200).render("description", {content, name: content.Name })
-    }catch(err){
-        console.log(err)
-        res.status(500).send(err)
-    }
-}
+const home_redirect = (req, res) => {
+  res.redirect("/home");
+};
 
-const home_redirect = (req,res) =>{
-    res.redirect("/home")
-}
+const render_profile = async (req, res, next) => {
+  const username = req.params.name;
+  try {
+    const userInfo = await findUsersCreations(username);
+    console.log(userInfo);
 
-const render_profile = async(req,res, next)=>{
-    const username = req.params.name
-    try{
-        const userInfo = await findUsersCreations(username)
-        console.log(userInfo)
-
-       res.render("profile", {name:`${username} - Profile`, games: userInfo.Games, anime: userInfo.Anime})
-    }catch(err){
-        console.log(err)
-        res.status(500).send({err})
-    }
-}
-
+    res.render("profile", {
+      name: `${username} - Profile`,
+      games: userInfo.Games,
+      anime: userInfo.Anime,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).send({ err });
+  }
+};
 
 module.exports = {
-    home_get,
-    home_redirect,
-    find_result,
-    render_profile
-}
+  home_get,
+  home_redirect,
+  find_result,
+  render_profile,
+};
