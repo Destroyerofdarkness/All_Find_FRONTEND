@@ -1,8 +1,8 @@
 
-const { get_games_and_anime }= require("../handlers/getContentHandler")
+const { get_req }= require("../handlers/getContentHandler")
 
 const home_get = async (req,res) =>{
-    const {game, anime} = await get_games_and_anime()
+    const {game, anime} = await get_req("/getAllContent");
     res.render("index", {name: "Home", game , anime})
 }
 

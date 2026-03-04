@@ -1,8 +1,8 @@
 
 
-const get_games_and_anime = async()=>{
+const get_req= async(PATH)=>{
 
-    const res = await fetch("http://localhost:4000/getAllContent",{
+    const res = await fetch(`${process.env.API}${PATH}`,{
         method: "GET",
         headers: {"Content-Type": "application/json"}
     })
@@ -11,4 +11,4 @@ const get_games_and_anime = async()=>{
     return data;
 } 
 
-module.exports = {get_games_and_anime}
+module.exports = {get_req}
