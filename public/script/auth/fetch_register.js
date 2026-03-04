@@ -1,5 +1,5 @@
-document.addEventListener("DOMContentLoaded", (e)=>{
-    e.preventDefault()
+
+    
    const form = document.querySelector('#register');
     const userError = document.querySelector(".user.error");
     const passError = document.querySelector(".pass.error");
@@ -25,4 +25,3 @@ document.addEventListener("DOMContentLoaded", (e)=>{
         window.location.href = `/createCookie/${data.token}`
     }
     })
-})

@@ -1,6 +1,3 @@
-document.addEventListener("DOMContentLoaded", (e) => {
-  e.preventDefault();
-
   const form = document.querySelector("#register");
 
   const linkError = document.querySelector(".link.error");
@@ -37,4 +34,3 @@ document.addEventListener("DOMContentLoaded", (e) => {
       console.error(err);
     }
   });
-});
