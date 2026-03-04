@@ -10,7 +10,7 @@
         <h1>Game</h1>
         <% console.log("Games Acquiered") %> 
         <% game.forEach(data => { %>
-        <a href="/result/<%= data.id %>">
+        <a href="/result/<%= data._id %>">
           <div class="dataBase">
             <img src="<%= data.link %>" alt="<%= data.Name %>" />
             <h2><%= data.Name %></h2>
@@ -26,7 +26,7 @@
             <div>
         <h1>Anime</h1>
         <% anime.forEach(data =>{ %>
-        <a href="/result/<%= data.id %>">
+        <a href="/result/<%= data._id %>">
           <div class="dataBase">
             <img src="<%= data.link %>" alt="" />
             <h2><%= data.Name %></h2>

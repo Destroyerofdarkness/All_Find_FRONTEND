@@ -19,7 +19,7 @@
                             <%=content.Description %>
                 </div>
             </main>
-            <% if(user === content.createdBy) {%>
+            <% if(user.user === content.createdBy) {%>
             <% if(content.Episodes){ %>
                 <form class="delete" action="/home/anime/<%= content.id %>" method="post">
                     <input type="hidden" name="gameid" value="<%= content.id %>">

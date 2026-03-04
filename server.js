@@ -1,3 +1,4 @@
+//Requiered modules
 const express = require("express");
 
 const path = require("path");
@@ -13,13 +14,13 @@ require("dotenv").config();
 const app = express();
 
 
-
+//Middleware
 const { checkUser } = require("./middleware/jwtAuth.js");
 
 const { search } = require("./middleware/search.js");
 
 
-
+//Routes
 const home = require("./routes/home.js");
 
 const gameRoute = require("./routes/game.js");
@@ -29,7 +30,7 @@ const animeRoute = require("./routes/anime.js");
 const authRoute = require("./routes/auth.js");
 
 
-
+//Options conf
 app.set("view engine", "ejs");
 
 app.use(express.static(path.join(__dirname, "public")));
@@ -42,18 +43,20 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: process.env.HOST,
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: ["Content-Type", "Authorization"],
   }),
 );
 
 
-
+//Used middleware
 //app.use(search)
 
 app.use(checkUser);
 
+
+//Used Routes
 app.use("/home/anime", animeRoute);
 
 app.use("/home/game", gameRoute);
@@ -67,7 +70,7 @@ app.use((req, res) => {
 });
 
 
-
+//Server Start
 app.listen(process.env.PORT, "0.0.0.0", async () => {
   console.log("Server is running on port:", process.env.PORT);
 });

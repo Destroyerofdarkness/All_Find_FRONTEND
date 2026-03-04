@@ -10,15 +10,15 @@ const home_get = async (req, res) => {
   }
 };
 
-const find_result = async (req, res) => {
+const find_result = async (req, res,next) => {
   const id = req.params.id;
   try {
-    const content = await findContent(id);
-    console.log("content:", content);
+    const {content} = await get_req(`/result/${id}`)
     res.status(200).render("description", { content, name: content.Name });
   } catch (err) {
     console.log(err);
-    res.status(500).send(err);
+    res.status(404)
+    next()
   }
 };
 
