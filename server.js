@@ -42,7 +42,7 @@ app.use(cors({
 
 //app.use(search)
 
-//app.use(checkUser)
+app.use(checkUser)
 
 app.use("/home/anime", animeRoute);
 

@@ -1,5 +1,7 @@
 const jwt = require("jsonwebtoken");
 
+const { get_req }= require("../handlers/getContentHandler");
+
 const authenticate = (req, res, next) => {
   const token = req.cookies.jwt;
   console.log("User Token:", token);
@@ -28,23 +30,19 @@ const checkCurrentUser = (req, res, next) => {
 };
 
 
-const checkUser =(req,res,next)=>{
+const checkUser = async(req,res,next)=>{
   const token = req.cookies.jwt;
   console.log("User Token:", token);
   if (token) {
-    jwt.verify(token, process.env.secret, async (err, decodedToken) => {
-      if (err) {
-        console.log(err);
-        res.locals.user = null
-        next()
-      }else{
-        console.log(decodedToken.id);
-        const user = await User.findById(decodedToken.id)
-        console.log(user)
-        res.locals.user = user.user
-        next()
-      }
-    });
+    const {success, user} = await get_req(`/verifyJWT/${token}`)
+    console.log("User:",user)
+    if(success){
+      res.locals.user = user
+      next()
+    }else{
+      res.locals.user = null
+      next()
+    }
   } else {
     res.locals.user = null
     next()
