@@ -1,6 +1,6 @@
 <%- include("./partials/head.ejs") %>
     <link rel="stylesheet" href="/css/description.css">
-    <script src="/script/delete_req/delete_anime.js"></script>
+    <script src="/script/delete_req/delete_content.js"></script>
     <%- include("./partials/header.ejs") %>
 
         <body>
@@ -19,11 +19,13 @@
                             <%=content.Description %>
                 </div>
             </main>
+            <% if(user){ %>
             <% if(user.user === content.createdBy) {%>
             <% if(content.Episodes){ %>
                 <button class="delete deleteAnime" data-id="<%= content._id %>">Delete</button>
                 <% } else{%>
                     <button class="delete deleteGame" data-id="<%= content._id %>">Delete</button>
+                    <% } %>
                     <% } %>
                     <% } %>
                         <%- include("./partials/footer") %>

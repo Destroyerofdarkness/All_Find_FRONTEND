@@ -1,4 +1,10 @@
-
+#ContentError{
+    color: var(--text);
+    font-family: var(--katibeh);
+    font-weight: 400;
+    font-size: 3vw;
+    margin-bottom: 30vw;
+}
 
 #allData div a{
     display: flex;

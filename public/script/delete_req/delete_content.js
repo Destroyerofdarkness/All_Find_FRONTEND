@@ -11,5 +11,18 @@ document.addEventListener("click", async function (e) {
   if(data.success){
     window.location.href = "/"
   }
+  }else if (e.target.classList.contains("deleteGame")) {
+    
+    const gameId = e.target.dataset.id;
+    const res = await fetch("http://localhost:4000/game/delete", {
+      method: "DELETE",
+      body: JSON.stringify({gameId}),
+        headers: { "Content-Type": "application/json" },
+    });
+
+    const data = await res.json();
+  if(data.success){
+    window.location.href = "/"
+  };
   }
 });
