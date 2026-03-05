@@ -9,7 +9,7 @@ document.addEventListener("click", async function (e) {
 
     const data = await res.json();
   if(data.success){
-    window.location.reload() 
+    window.location.href = "/"
   }
   }
 });

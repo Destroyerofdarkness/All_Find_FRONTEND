@@ -15,7 +15,7 @@
     const user = form.user.value;
     console.log("User", user);
     try {
-      const res = await fetch("http://localhost:4000/home/game/register", {
+      const res = await fetch("http://localhost:4000/game/register", {
         method: "POST",
         body: JSON.stringify({ link, name, description, user }),
         headers: { "Content-Type": "application/json" },
