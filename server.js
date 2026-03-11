@@ -17,8 +17,6 @@ const app = express();
 //Middleware
 const { checkUser } = require("./middleware/jwtAuth.js");
 
-const { search } = require("./middleware/search.js");
-
 
 //Routes
 const home = require("./routes/home.js");
@@ -51,7 +49,6 @@ app.use(
 
 
 //Used middleware
-//app.use(search)
 
 app.use(checkUser);
 
