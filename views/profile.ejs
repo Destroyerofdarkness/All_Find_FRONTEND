@@ -9,14 +9,14 @@
       <hr id="topLine">
     </section>
   <main>
-
+    <% if(games.length > 0 && anime.length > 0 ){ %>
     <% if (games.length > 0) {%>
             <section>
         <h3>Game</h3>
         <hr>
         <% console.log("Users Games loaded") %> 
         <% games.forEach(data => { %>
-        <a href="/result/<%= data.id %>">
+        <a href="/result/<%= data._id %>">
 
             <img src="<%= data.link %>" alt="<%= data.Name %>" />
             <h4><%= data.Name %></h4>
@@ -33,7 +33,7 @@
         <h3>Anime</h3>
          <hr>
         <% anime.forEach(data =>{ %>
-        <a href="/result/<%= data.id %>">
+        <a href="/result/<%= data._id %>">
           
             <img src="<%= data.link %>" alt="" />
             <h4><%= data.Name %></h4>
@@ -42,6 +42,10 @@
         <% })%> 
             </section>
         <% } %>
+
+        <% }else{ %>
+            <h1>This User has not any creations!!</h1>
+            <% } %>
   </main>
 </body>
     

@@ -29,17 +29,18 @@ const home_redirect = (req, res) => {
 const render_profile = async (req, res, next) => {
   const username = req.params.name;
   try {
-    const userInfo = await findUsersCreations(username);
+    const {userInfo,user} = await get_req(`/user/${username}`)
     console.log(userInfo);
 
     res.render("profile", {
-      name: `${username} - Profile`,
+      name: `${user} - Profile`,
       games: userInfo.Games,
       anime: userInfo.Anime,
     });
   } catch (err) {
     console.log(err);
-    res.status(500).send({ err });
+    res.status(404)
+    next()
   }
 };
 

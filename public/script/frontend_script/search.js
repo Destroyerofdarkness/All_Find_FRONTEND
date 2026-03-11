@@ -2,7 +2,7 @@ const searchBar = document.querySelector("#searchValue");
 const result = document.querySelector(".results");
 
 searchBar.addEventListener("input", async (e) => {
-  const searchValue = searchBar.value.trim();
+  const searchValue = searchBar.value.toLowerCase().trim();
 
   const res = await fetch("http://localhost:4000/getAllContent", {
     method: "GET",
@@ -17,7 +17,7 @@ searchBar.addEventListener("input", async (e) => {
 
   const all = [...game, ...anime];
   const results = all.filter((data) => {
-    return data.Name.toLowerCase.includes(searchValue);
+    return data.Name.toLowerCase().includes(searchValue);
   });
   result.innerHTML = results
     .map((data) => {

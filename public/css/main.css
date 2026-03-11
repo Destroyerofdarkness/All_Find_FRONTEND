@@ -45,7 +45,18 @@ nav a{
 button:hover{
   cursor: pointer;
 }
-
+section{
+  display: flex;
+  align-content: center;
+  align-items: center;
+  gap: 1vw;
+}
+section label{
+  font-size: 1.5vw;
+  align-self: center;
+  color: var(--text);
+  font-family: var(--kameron);
+}
 #searchValue{
   outline: none;
   border-radius: 0.4vw;
