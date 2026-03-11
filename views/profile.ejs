@@ -3,7 +3,7 @@
   <%- include("./partials/header.ejs")%>
 <body>
  <h1><%= name %></h1>
-  <section>
+  <section id="TopSection">
      
       <h2>Creations</h2>
       <hr id="topLine">
@@ -11,7 +11,7 @@
   <main>
     <% if(games.length > 0 && anime.length > 0 ){ %>
     <% if (games.length > 0) {%>
-            <section>
+            <section class="dataSection">
         <h3>Game</h3>
         <hr>
         <% console.log("Users Games loaded") %> 
@@ -29,7 +29,7 @@
       
         
         <%if (anime.length > 0){ %>
-            <section>
+            <section class="dataSection">
         <h3>Anime</h3>
          <hr>
         <% anime.forEach(data =>{ %>
