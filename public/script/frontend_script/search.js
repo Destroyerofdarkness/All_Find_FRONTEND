@@ -9,13 +9,13 @@ searchBar.addEventListener("input", async (e) => {
     headers: { "Content-Type": "application/json" },
   });
 
-  const { game, anime } = await res.json();
+  const { games, anime } = await res.json();
   if (!searchValue) {
     result.innerHTML = "";
     return;
   }
 
-  const all = [...game, ...anime];
+  const all = [...games, ...anime];
   const results = all.filter((data) => {
     return data.Name.toLowerCase().includes(searchValue);
   });

@@ -2,23 +2,23 @@ const { get_req } = require("../handlers/getContentHandler");
 
 const home_get = async (req, res) => {
   try {
-    const { game, anime } = await get_req("/getAllContent");
-    res.render("index", { name: "Home", game, anime });
+    const { games, anime } = await get_req("/getAllContent");
+    res.render("index", { name: "Home", games, anime });
   } catch (err) {
     console.log(err);
     res.status(500);
   }
 };
 
-const find_result = async (req, res,next) => {
+const find_result = async (req, res, next) => {
   const id = req.params.id;
   try {
-    const {content} = await get_req(`/result/${id}`)
+    const { content } = await get_req(`/result/${id}`);
     res.status(200).render("description", { content, name: content.Name });
   } catch (err) {
     console.log(err);
-    res.status(404)
-    next()
+    res.status(404);
+    next();
   }
 };
 
@@ -29,7 +29,7 @@ const home_redirect = (req, res) => {
 const render_profile = async (req, res, next) => {
   const username = req.params.name;
   try {
-    const {userInfo,user} = await get_req(`/user/${username}`)
+    const { userInfo, user } = await get_req(`/user/${username}`);
     console.log(userInfo);
 
     res.render("profile", {
@@ -39,8 +39,8 @@ const render_profile = async (req, res, next) => {
     });
   } catch (err) {
     console.log(err);
-    res.status(404)
-    next()
+    res.status(404);
+    next();
   }
 };
 
