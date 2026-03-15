@@ -6,8 +6,8 @@ const post_req= async(PATH, BODY)=>{
         headers: {"Content-Type": "application/json"}
     })
 
-    const data = res.json()
+    const data = await res.json()
     return data;
 } 
 
-module.exports = {post_req}
+module.exports = post_req

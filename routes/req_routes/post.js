@@ -1,6 +1,5 @@
 const router = require("express").Router();
-const {checkCurrentUser}= require("../middleware/jwtAuth.js")
-const controller = require("../controllers/postControllers.js")
+const controller = require("../../controllers/postControllers.js")
 
 
 router.post("/anime", controller.send_post_anime_req)

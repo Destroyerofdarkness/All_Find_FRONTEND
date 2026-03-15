@@ -1,4 +1,4 @@
-const { get_req }= require("../handlers/getContentHandler");
+const  get_req = require("../handlers/getContentHandler");
 
 const authenticate = async(req, res, next) => {
   const token = req.cookies.jwt;

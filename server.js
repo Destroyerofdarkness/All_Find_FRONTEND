@@ -27,7 +27,10 @@ const animeRoute = require("./routes/anime.js");
 
 const authRoute = require("./routes/auth.js");
 
-const postRoute = require("./routes/post.js")
+//Req Routes
+const postRoute = require("./routes/req_routes/post.js")
+
+const deleteRoute = require("./routes/req_routes/delete.js")
 
 
 //Options conf
@@ -61,6 +64,8 @@ app.use("/home/anime", animeRoute);
 app.use("/home/game", gameRoute);
 
 app.use("/post",postRoute)
+
+app.use("/delete", deleteRoute)
 
 app.use(home);
 

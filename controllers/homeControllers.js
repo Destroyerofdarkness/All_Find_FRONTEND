@@ -1,4 +1,4 @@
-const { get_req } = require("../handlers/getContentHandler");
+const get_req  = require("../handlers/getContentHandler");
 
 const home_get = async (req, res) => {
   try {
