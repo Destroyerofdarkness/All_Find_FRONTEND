@@ -9,7 +9,7 @@
         const pass = form.pass.value    
         userError.textContent = "";
         passError.textContent = "";
-    const res = await fetch("http://localhost:4000/register", {
+    const res = await fetch("/post/register", {
         method : "POST",
         body: JSON.stringify({user,pass}),
         headers: {"Content-Type": "application/json"}

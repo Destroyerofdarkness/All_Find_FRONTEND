@@ -4,14 +4,14 @@
   <%- include("./partials/header.ejs")%>
   <body>
     <main id="allData">
-      <% if(game.length == 0 && anime.length == 0){ %>
+      <% if(games.length == 0 && anime.length == 0){ %>
         <h1 id="ContentError">No Content To Show!!</h1>
         <% } %>
-        <% if (game.length > 0) {%>
+        <% if (games.length > 0) {%>
             <div>
         <h1>Game</h1>
         <% console.log("Games Acquiered") %> 
-        <% game.forEach(data => { %>
+        <% games.forEach(data => { %>
         <a href="/result/<%= data._id %>">
           <div class="dataBase">
             <img src="<%= data.link %>" alt="<%= data.Name %>" />

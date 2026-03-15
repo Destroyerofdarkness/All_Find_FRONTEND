@@ -27,6 +27,8 @@ const animeRoute = require("./routes/anime.js");
 
 const authRoute = require("./routes/auth.js");
 
+const postRoute = require("./routes/post.js")
+
 
 //Options conf
 app.set("view engine", "ejs");
@@ -58,9 +60,13 @@ app.use("/home/anime", animeRoute);
 
 app.use("/home/game", gameRoute);
 
+app.use("/post",postRoute)
+
 app.use(home);
 
 app.use(authRoute);
+
+
 
 app.use((req, res) => {
   res.status(404).render("404", { name: "Page Not Found" });
