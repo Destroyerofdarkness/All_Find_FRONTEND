@@ -4,12 +4,13 @@ const result = document.querySelector(".results");
 searchBar.addEventListener("input", async (e) => {
   const searchValue = searchBar.value.toLowerCase().trim();
 
-  const res = await fetch("http://localhost:4000/getAllContent", {
+  const res = await fetch("/getSearchContent", {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   });
 
-  const { games, anime } = await res.json();
+
+  const {games, anime} = await res.json();
   if (!searchValue) {
     result.innerHTML = "";
     return;

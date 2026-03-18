@@ -44,9 +44,21 @@ const render_profile = async (req, res, next) => {
   }
 };
 
+
+const get_Search_Content = async(req,res)=>{
+  try {
+    const {games, anime} = await get_req("/getAllContent");
+    res.status(200).json({games, anime, message: "Fetched Content;"})
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({data:null, message: "Couldn't fetch Content"})
+  }
+}
+
 module.exports = {
   home_get,
   home_redirect,
   find_result,
   render_profile,
+  get_Search_Content
 };

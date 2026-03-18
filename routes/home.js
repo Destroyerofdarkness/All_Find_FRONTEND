@@ -13,6 +13,8 @@ router.get("/", homeController.home_redirect);
 
 router.get("/profile/:name", homeController.render_profile)
 
+router.get("/getSearchContent", homeController.get_Search_Content)
+
 
 
 module.exports = router;
