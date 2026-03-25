@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const controller = require("../../controllers/postControllers.js")
+const controller = require("../../controllers/API_req/postControllers")
 
 
 router.post("/anime", controller.send_post_anime_req)

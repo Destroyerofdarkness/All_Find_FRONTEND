@@ -1,4 +1,4 @@
-const  post_req  = require("../handlers/postContentHandler");
+const  post_req  = require("../../handlers/postContentHandler");
 
 //Auth
 const send_post_login_req = async (req, res) => {

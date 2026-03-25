@@ -1,4 +1,4 @@
-const delete_req = require("../handlers/deleteContentHandler")
+const delete_req = require("../../handlers/deleteContentHandler")
 
 const send_delete_game_req = async(req,res)=>{
     const {gameId} = req.body;

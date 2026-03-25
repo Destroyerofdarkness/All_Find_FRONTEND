@@ -30,10 +30,11 @@ const render_profile = async (req, res, next) => {
   const username = req.params.name;
   try {
     const { userInfo, user } = await get_req(`/user/${username}`);
-    console.log(userInfo);
+    console.log("User profile:",user);
 
     res.render("profile", {
-      name: `${user} - Profile`,
+      name: `${user.user} - Profile`,
+      userData:user,
       games: userInfo.Games,
       anime: userInfo.Anime,
     });

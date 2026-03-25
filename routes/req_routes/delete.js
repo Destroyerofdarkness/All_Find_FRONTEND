@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const controller = require("../../controllers/deleteControllers.js");
+const controller = require("../../controllers/API_req/deleteControllers");
 
 router.delete("/game", controller.send_delete_game_req)
 

@@ -1,10 +1,32 @@
 <%- include("./partials/head.ejs")%>
 <link rel="stylesheet" href="/css/profile.css">
+<script defer src="/script/update_req/update_user_bio.js"></script>
   <%- include("./partials/header.ejs")%>
 <body>
+
+
+
  <h1><%= name %></h1>
+ <% if(user){ %>
+<% if(userData.name === user.name){ %>
+    <form id="updateBio" action="/update/userBio">
+    <label for="userBio">About Me:</label>
+    <textarea name="userBio" id="userBio"><%= userData.aboutMe  %></textarea>
+    <input type="hidden" id="userName" name="userName" value="<%= userData._id %>">
+    <button type="submit">Update Info</button>
+    </form>
+ <% } else{%>
+     <p><%= userData.aboutMe  %></p>
+   <% } %> 
+    <% }else{ %>
+    <p><%= userData.aboutMe  %></p>
+    <% } %>
+
+
+
+
+
   <section id="TopSection">
-     
       <h2>Creations</h2>
       <hr id="topLine">
     </section>
