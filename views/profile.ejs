@@ -12,7 +12,7 @@
     <form id="updateBio" action="/update/userBio">
     <label for="userBio">About Me:</label>
     <textarea name="userBio" id="userBio"><%= userData.aboutMe  %></textarea>
-    <input type="hidden" id="userName" name="userName" value="<%= userData._id %>">
+    <input type="hidden" id="userName" name="userName" value="<%= user._id %>">
     <button type="submit">Update Info</button>
     </form>
  <% } else{%>
