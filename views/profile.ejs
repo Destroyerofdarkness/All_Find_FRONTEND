@@ -8,7 +8,7 @@
 
  <h1><%= name %></h1>
  <% if(user){ %>
-<% if(userData.name === user.name){ %>
+<% if(userData.user === user.user){ %>
     <form id="updateBio" action="/update/userBio">
     <label for="userBio">About Me:</label>
     <textarea name="userBio" id="userBio"><%= userData.aboutMe  %></textarea>
