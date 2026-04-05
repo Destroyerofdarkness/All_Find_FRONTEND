@@ -33,7 +33,14 @@
 
                     <section>
                         <h3>All Comments:</h3>
-                        <div>Not anything there yet!!</div>
+                        <% if(comments.length == 0){%>
+                            <h4>Not anything there yet!!</h4>
+                      <%  } else{ %>
+                        <% comments.forEach(comment => {%>
+                            <h4><%= comment.user %></h4>
+                            <p><%= comment.content %></p>
+                      <%  }); %>
+                        <% } %>
                     </section>
 
 

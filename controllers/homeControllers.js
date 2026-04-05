@@ -14,7 +14,8 @@ const find_result = async (req, res, next) => {
   const id = req.params.id;
   try {
     const { content } = await get_req(`/result/${id}`);
-    res.status(200).render("description", { content, name: content.Name });
+    const {viewComments} = await get_req(`/comment/${id}`);
+    res.status(200).render("description", { content, name: content.Name, comments: viewComments});
   } catch (err) {
     console.log(err);
     res.status(404);
