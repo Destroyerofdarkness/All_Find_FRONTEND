@@ -33,7 +33,8 @@
 
                     <section>
                         <h3>All Comments:</h3>
-                        <% if(comments.length == 0){%>
+
+                        <% if(!comments){%>
                             <h4>Not anything there yet!!</h4>
                       <%  } else{ %>
                         <% comments.forEach(comment => {%>
@@ -41,6 +42,7 @@
                             <p><%= comment.content %></p>
                       <%  }); %>
                         <% } %>
+
                     </section>
 
 
