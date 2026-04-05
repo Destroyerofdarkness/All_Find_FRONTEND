@@ -1,6 +1,7 @@
 <%- include("./partials/head.ejs") %>
     <link rel="stylesheet" href="/css/description.css">
-    <script src="/script/delete_req/delete_content.js"></script>
+    <script src="/script/delete_req/delete_content.js" defer></script>
+    <script src="/script/post_req/fetch_comment.js" defer></script>
     <%- include("./partials/header.ejs") %>
 
         <body>
@@ -27,6 +28,23 @@
                     <button class="delete deleteGame" data-id="<%= content._id %>">Delete</button>
                     <% } %>
                     <% } %>
+                    <% } %>
+
+
+                    <section>
+                        <h3>All Comments:</h3>
+                        <div>Not anything there yet!!</div>
+                    </section>
+
+
+                    <% if(user){%>
+                    <form id="newComment">
+                        <input type="hidden" name="user" id="user" value="<%= user.user %>">
+                        <input type="hidden" name="connection" id="connection" value="<%= content._id %>">
+                        <label for="comment"> Comment:</label>
+                        <input type="text" name="comment" id="comment" placeholder="Write a comment..">
+                        <button type="submit">Post</button>
+                    </form>
                     <% } %>
                         <%- include("./partials/footer") %>
         </body>
