@@ -31,17 +31,22 @@
                     <% } %>
 
 
-                    <section>
-                        <h3>All Comments:</h3>
-
+                    <h3 id="commentTitle">All Comments:</h3>
+                    <section id="commentSection">
+                        
+                        
                         <% if(!comments){%>
                             <h4>Not anything there yet!!</h4>
                       <%  } else{ %>
                         <% comments.forEach(comment => {%>
+                            <div>
                             <h4><%= comment.user %></h4>
                             <p><%= comment.content %></p>
+                            <hr>
+                            </div>
                       <%  }); %>
                         <% } %>
+                        
 
                     </section>
 
@@ -50,7 +55,7 @@
                     <form id="newComment">
                         <input type="hidden" name="user" id="user" value="<%= user.user %>">
                         <input type="hidden" name="connection" id="connection" value="<%= content._id %>">
-                        <label for="comment"> Comment:</label>
+                        <label for="comment"> Add Comment:</label>
                         <input type="text" name="comment" id="comment" placeholder="Write a comment..">
                         <button type="submit">Post</button>
                     </form>

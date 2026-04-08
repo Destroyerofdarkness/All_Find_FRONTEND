@@ -54,6 +54,89 @@ color: var(--text);
     padding-right: 1vw;
     align-self: center;
 }
+#commentSection{
+    display: flex;
+    flex-direction: column;
+    background: var(--primary);
+    box-shadow: 0 0 1vw var(--shadow);
+    max-width: 40vw;
+    padding: 0.7vw;
+    align-self: center;
+    min-width: 40vw;
+    border-radius: 0.7vw;
+}
+#commentSection div h4{
+    color: var(--text);
+    font-family: var(--katibeh);
+    font-weight: 100;
+    font-size: 1.8vw;
+    margin: 0;
+}
+#commentSection div p{
+    color: var(--text);
+    font-family: var(--kameron);
+    font-weight: 100;
+    margin: 0;
+    margin-top: 0.4vw;
+    margin-left: 0.6vw;
+    font-size: 1.2vw;
+}
+#commentSection div hr{
+    box-shadow: 0 0 1vw var(--shadow);
+    border-color: var(--shadow);
+    height: auto;
+    width: auto;
+}
+#commentTitle{
+    color: var(--text);
+    font-family: var(--katibeh);
+    font-weight: 300;
+    font-size: 2vw;
+    margin-left: 30vw;
+    margin-top: 2vw;
+}
+#newComment{
+    margin-top: 3vw;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    gap: 0.6vw;
+}
+#newComment label{
+    color: var(--text);
+    font-family: var(--katibeh);
+    font-weight: 100;
+    font-size: 2vw;
+}
+#newComment input{
+width: 30vw;
+height: auto;
+font-size: 1.2vw;
+background: var(--primary);
+color: var(--text);
+outline: none;
+border: 0;
+box-shadow: 0 0 1vw var(--shadow);
+padding: 0.5vw;
+border-radius: 0.5vw;
+}
+input::placeholder{
+    color: var(--text);
+}
+#newComment button{
+    align-self:flex-end;
+    background: var(--primary);
+    border: 0;
+    box-shadow: 0 0 1vw var(--shadow);
+    border-radius: 0.4vw;
+    color: var(--text);
+    font-size: 1.6vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    font-family: var(--kameron);
+    margin-bottom: 3vw;
+}
+
 :root{
   --primary: #220029;
   --text: #A200FF;
