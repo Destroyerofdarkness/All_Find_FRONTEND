@@ -65,7 +65,7 @@ color: var(--text);
     min-width: 40vw;
     border-radius: 0.7vw;
 }
-#commentSection div h4{
+h4{
     color: var(--text);
     font-family: var(--katibeh);
     font-weight: 100;
