@@ -32,6 +32,7 @@ const render_profile = async (req, res, next) => {
   try {
     const { userInfo, user } = await get_req(`/user/${username}`);
     console.log("User profile:",user);
+    console.log(userInfo)
 
     res.render("profile", {
       name: `${user.user} - Profile`,

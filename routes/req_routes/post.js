@@ -1,5 +1,8 @@
 const router = require("express").Router();
 const controller = require("../../controllers/API_req/postControllers");
+const limit = require("../../config/RateLimit")
+
+router.use(limit);
 
 router.post("/anime", controller.send_post_anime_req);
 

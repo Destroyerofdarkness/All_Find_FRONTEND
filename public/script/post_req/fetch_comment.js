@@ -2,7 +2,6 @@ const form = document.querySelector("#newComment");
 
 form.addEventListener("submit",async (e)=>{
     e.preventDefault();
-//Fix the value of comment not coming up
     const user = form.user.value;
     const connection = form.connection.value;
     const content = form.comment.value;
@@ -18,6 +17,6 @@ form.addEventListener("submit",async (e)=>{
     if(data.success){
         window.location.reload();
     }else{
-        window.alert("Unable to comment on the given view!!")
+        window.location.reload();
     }
 });
