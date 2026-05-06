@@ -1,32 +1,41 @@
 document.addEventListener("click", async function (e) {
   if (e.target.classList.contains("deleteAnime")) {
+    const loggedIn = document.querySelector("#username").value;
 
     const animeId = e.target.dataset.id;
-    
-    const res = await fetch("/delete/anime", {
-      method: "DELETE",
-      body: JSON.stringify({ animeId }),
-      headers: { "Content-Type": "application/json" },
-    });
+    const user = e.target.dataset.user;
+    if (user === loggedIn) {
+      const res = await fetch("/delete/anime", {
+        method: "DELETE",
+        body: JSON.stringify({ animeId }),
+        headers: { "Content-Type": "application/json" },
+      });
 
-    const data = await res.json();
+      const data = await res.json();
 
-    if (data.success) {
-      window.location.href = "/";
+      if (data.success) {
+        window.location.href = "/";
+      } else {
+        window.alert("Unable to delete the view!!");
+      }
     }
   } else if (e.target.classList.contains("deleteGame")) {
+    const loggedIn = document.querySelector("#username").value;
+
     const gameId = e.target.dataset.id;
-    
-    const res = await fetch("/delete/game", {
-      method: "DELETE",
-      body: JSON.stringify({ gameId }),
-      headers: { "Content-Type": "application/json" },
-    });
-    console.log("Test")
-    const data = await res.json();
-    console.log(data.success)
-    if (data.success) {
-      window.location.href = "/";
+    const user = e.target.dataset.user;
+    if (user === loggedIn) {
+      const res = await fetch("/delete/game", {
+        method: "DELETE",
+        body: JSON.stringify({ gameId }),
+        headers: { "Content-Type": "application/json" },
+      });
+      console.log("Test");
+      const data = await res.json();
+      console.log(data.success);
+      if (data.success) {
+        window.location.href = "/";
+      }
     }
   }
 });

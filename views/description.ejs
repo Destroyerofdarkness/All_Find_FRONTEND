@@ -1,6 +1,7 @@
 <%- include("./partials/head.ejs") %>
     <link rel="stylesheet" href="/css/description.css">
     <script src="/script/delete_req/delete_content.js" defer></script>
+    <script src="/script/delete_req/delete_comment.js" defer></script>
     <script src="/script/post_req/fetch_comment.js" defer></script>
     <%- include("./partials/header.ejs") %>
 
@@ -23,9 +24,9 @@
             <% if(user){ %>
             <% if(user.user === content.createdBy) {%>
             <% if(content.Episodes){ %>
-                <button class="delete deleteAnime" data-id="<%= content._id %>">Delete</button>
+                <button class="delete deleteAnime" data-id="<%= content._id %>" data-user="<%= content.createdBy%>">Delete</button>
                 <% } else{%>
-                    <button class="delete deleteGame" data-id="<%= content._id %>">Delete</button>
+                    <button class="delete deleteGame" data-id="<%= content._id %>" data-user="<% content.createdBy %>">Delete</button>
                     <% } %>
                     <% } %>
                     <% } %>
@@ -42,6 +43,7 @@
                             <div>
                             <h4><%= comment.user %></h4>
                             <p><%= comment.content %></p>
+                            <button class="comDelete" data-id="<%= comment._id %>" data-user="<%= comment.user  %>">Delete</button>
                             <hr>
                             </div>
                       <%  }); %>

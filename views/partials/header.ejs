@@ -10,8 +10,7 @@
          
     </div>
     
-    
-       
+
 
 <nav>
 <a href="/home/game/register">Register  Game</a>
@@ -25,4 +24,8 @@
 <a href="/register">Sign Up</a>
     <% } %>
 </nav>
+
+<% if(user){ %>
+<input type="hidden" name="username" id="username" value="<%= user.user %>">
+<%  }%>
 </header>
