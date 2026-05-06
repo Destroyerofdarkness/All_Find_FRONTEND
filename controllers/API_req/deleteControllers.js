@@ -21,4 +21,20 @@ const send_delete_anime_req = async(req,res)=>{
     }
 }
 
-module.exports = {send_delete_game_req, send_delete_anime_req}
+
+const send_delete_comment_req = async(req,res)=>{
+    try {
+        const {success, err}= await delete_req("/comment/delete",req.body);
+        if(success){
+            res.status(200).json({success});
+        }else{
+            console.log(err);
+            res.status(400).json({success});
+        }
+    } catch (err) {
+        console.log(err);
+            res.status(500).json({err})
+    }
+}
+
+module.exports = {send_delete_game_req, send_delete_anime_req, send_delete_comment_req}
