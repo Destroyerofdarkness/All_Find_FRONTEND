@@ -34,6 +34,24 @@
                                 <% } %>
                                     <% } %>
 
+                                    <form id="newReport">
+                                        <input type="hidden" name="user" id="user" value="<%= user.user %>" >
+                                        <input type="hidden" name="connection" id="connection" value=" <%= content._id  %>">
+                                        <input type="hidden" name="conName" id="conName" value="<%= content.name %>">
+                                        <label for="description">Report:</label>
+                                        <textarea name="description" id=" description" placeholder="Enter the report description.."></textarea>
+
+                                        
+                                         <% if(content.Episodes){ %>
+                                        <input type="hidden" name="type" id="type" value="Anime">
+                                        <% }else{ %>
+                                        <input type="hidden" name="type" id="type" value="Game">
+                                        <% } %>
+
+
+                                        <button type="submit">Send</button>
+                                    </form>
+
 
                                         <h3 id="commentTitle">All Comments:</h3>
                                         <section id="commentSection">

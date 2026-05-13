@@ -139,6 +139,12 @@ main section{
     align-self: center;
     height: auto;
 }
+#noContent{
+    font-family: var(--kameron);
+    font-size: 1.4vw;
+    color: var(--text);
+    text-align: center;
+}
 :root{
   --primary: #220029;
   --text: #A200FF;
