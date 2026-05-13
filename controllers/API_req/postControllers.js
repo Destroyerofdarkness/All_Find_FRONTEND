@@ -80,10 +80,26 @@ const send_post_comment_req = async (req, res) => {
   }
 };
 
+
+const send_post_report_req = async (req,res)=>{
+  try {
+    const {error, success} = await post_req("/report/publish", req.body)
+    console.log("ERROR", error, "SUCCESS", success)
+    if(error){
+      res.status(400).json({success, error})
+    }else{
+      res.status(200).json({success});
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({success:false})
+  }
+}
 module.exports = {
   send_post_anime_req,
   send_post_game_req,
   send_post_login_req,
   send_post_register_req,
-  send_post_comment_req
+  send_post_comment_req,
+  send_post_report_req
 };

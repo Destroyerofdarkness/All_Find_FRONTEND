@@ -15,4 +15,6 @@ router.post("/register", controller.send_post_register_req);
 
 router.post("/comment",authenticate, controller.send_post_comment_req);
 
+router.post("/report", authenticate, controller.send_post_report_req);
+
 module.exports = router;

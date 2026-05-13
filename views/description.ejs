@@ -3,6 +3,7 @@
     <script src="/script/delete_req/delete_content.js" defer></script>
     <script src="/script/delete_req/delete_comment.js" defer></script>
     <script src="/script/post_req/fetch_comment.js" defer></script>
+    <script src="/script/post_req/fetch_report.js" defer></script>
     <%- include("./partials/header.ejs") %>
 
         <body>
@@ -37,11 +38,11 @@
                                     <form id="newReport">
                                         <input type="hidden" name="user" id="user" value="<%= user.user %>" >
                                         <input type="hidden" name="connection" id="connection" value=" <%= content._id  %>">
-                                        <input type="hidden" name="conName" id="conName" value="<%= content.name %>">
+                                        <input type="hidden" name="conName" id="conName" value="<%= content.Name %>">
                                         <label for="description">Report:</label>
                                         <textarea name="description" id=" description" placeholder="Enter the report description.."></textarea>
 
-                                        
+
                                          <% if(content.Episodes){ %>
                                         <input type="hidden" name="type" id="type" value="Anime">
                                         <% }else{ %>
